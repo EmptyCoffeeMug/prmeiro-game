@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://VT323(128).tres" type="DynamicFont" id=2]
+[ext_resource path="res://64.tres" type="DynamicFont" id=3]
+
+[node name="Game" type="Node"]
+script = ExtResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 75
+custom_constants/margin_top = 75
+custom_constants/margin_left = 75
+custom_constants/margin_bottom = 75
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 75.0
+margin_top = 75.0
+margin_right = 949.0
+margin_bottom = 525.0
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 874.0
+margin_bottom = 129.0
+custom_fonts/font = ExtResource( 2 )
+text = "NUMBER GUESSER"
+align = 1
+
+[node name="Message" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_top = 133.0
+margin_right = 874.0
+margin_bottom = 198.0
+custom_fonts/font = ExtResource( 3 )
+text = "Seu número é:"
+align = 1
+
+[node name="Greater" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 202.0
+margin_right = 874.0
+margin_bottom = 273.0
+custom_fonts/font = ExtResource( 3 )
+text = "Maior"
+
+[node name="Lesser" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 277.0
+margin_right = 874.0
+margin_bottom = 348.0
+custom_fonts/font = ExtResource( 3 )
+text = "Menor"
+
+[node name="Correct" type="Button" parent="MarginContainer/VBoxContainer"]
+margin_top = 352.0
+margin_right = 874.0
+margin_bottom = 423.0
+custom_fonts/font = ExtResource( 3 )
+text = "Correto"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Greater" to="." method="_on_Greater_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Lesser" to="." method="_on_Lesser_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Correct" to="." method="_on_Correct_pressed"]
